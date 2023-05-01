@@ -1,4 +1,4 @@
-package com.example.myapplication3;
+package dev.rivercat.fw_courier;
 
 import androidx.appcompat.app.AppCompatActivity;
 
