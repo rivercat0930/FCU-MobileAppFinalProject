@@ -8,71 +8,100 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="252dp"
+        android:layout_height="38dp"
         android:text="現在註冊，立刻吃到飯"
-        tools:layout_editor_absoluteX="122dp"
-        tools:layout_editor_absoluteY="261dp" />
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7" />
 
-    <Button
-        android:id="@+id/signin_signin_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="確認"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="526dp" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="帳號"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="299dp" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="密碼"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="365dp" />
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="264dp"
+        android:layout_height="77dp"
+        android:layout_marginBottom="52dp"
+        android:ems="10"
+        android:hint="請再次輸入密碼"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/signin_signin_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.435"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="確認密碼"
-        tools:layout_editor_absoluteX="143dp"
-        tools:layout_editor_absoluteY="429dp" />
-
-    <EditText
-        android:id="@+id/sigini_password_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="請輸入你想使用的密碼"
-        android:inputType="textPassword"
-        tools:layout_editor_absoluteX="94dp"
-        tools:layout_editor_absoluteY="382dp" />
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.215"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/sigini_user_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="269dp"
+        android:layout_height="69dp"
+        android:layout_marginBottom="12dp"
         android:ems="10"
         android:hint="請輸入你想使用的帳號"
         android:inputType="text"
-        tools:layout_editor_absoluteX="97dp"
-        tools:layout_editor_absoluteY="318dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextText"
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="密碼"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/sigini_password_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.191"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/sigini_password_tv"
+        android:layout_width="265dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="12dp"
         android:ems="10"
-        android:hint="請再次輸入密碼"
-        android:inputType="text"
-        tools:layout_editor_absoluteX="97dp"
-        tools:layout_editor_absoluteY="462dp" />
+        android:hint="請輸入你想使用的密碼"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/signin_signin_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="84dp"
+        android:text="確認"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="帳號"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/sigini_user_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.199"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

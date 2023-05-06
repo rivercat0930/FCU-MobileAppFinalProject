@@ -4,13 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="126dp"
-        android:layout_height="78dp"
-        android:layout_weight="1"
-        app:srcCompat="@drawable/_7" />
-
     <LinearLayout
         android:layout_width="160dp"
         android:layout_height="79dp"
@@ -19,10 +12,19 @@
 
         <TextView
             android:id="@+id/textView13"
-            android:layout_width="130dp"
+            android:layout_width="177dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="商家名稱"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="178dp"
+            android:layout_height="33dp"
+            android:layout_weight="1"
+            android:text="商家介紹"
+            android:textSize="14sp" />
 
     </LinearLayout>
 </LinearLayout>

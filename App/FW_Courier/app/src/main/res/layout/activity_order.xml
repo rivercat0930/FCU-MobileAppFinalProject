@@ -6,52 +6,73 @@
     android:layout_height="match_parent"
     tools:context=".OrderActivity">
 
-    <ListView
-        android:id="@+id/2222"
-        android:layout_width="362dp"
-        android:layout_height="315dp"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="73dp" />
-
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="有啥飯可選"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="26dp" />
-
-    <TextView
-        android:id="@+id/text5555555"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="選錯飯?點一下點錯的項目就可以取消"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="445dp" />
+        app:layout_constraintBottom_toTopOf="@+id/2222"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.723" />
 
     <ListView
-        android:id="@+id/88888888"
-        android:layout_width="357dp"
-        android:layout_height="169dp"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="476dp" />
+        android:id="@+id/2222"
+        android:layout_width="362dp"
+        android:layout_height="315dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="送出訂單"
-        tools:layout_editor_absoluteX="115dp"
-        tools:layout_editor_absoluteY="667dp" />
+    </ListView>
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:text="選好的飯"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="403dp" />
+        app:layout_constraintBottom_toTopOf="@+id/text5555555"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/text5555555"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="選錯飯?點一下點錯的項目就可以取消"
+        app:layout_constraintBottom_toTopOf="@+id/88888888"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ListView
+        android:id="@+id/88888888"
+        android:layout_width="357dp"
+        android:layout_height="169dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="送出訂單"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
