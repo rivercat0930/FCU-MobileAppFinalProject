@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="yellow">#DFB77B</color>
+    <string name="app_name">FW_Courier</string>
+    <style name="Base.Theme.FW_Courier" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.FW_Courier" parent="Base.Theme.FW_Courier"/>
+</resources>
