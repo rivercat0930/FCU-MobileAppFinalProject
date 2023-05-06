@@ -6,6 +6,64 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/main_register_btn"
+        android:layout_width="315dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="12dp"
+        android:text="沒有帳號? 馬上點我註冊，所有人都要吃到飯"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="143dp"
+        android:layout_height="162dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/everyone_must_eat_rice" />
+
+    <EditText
+        android:id="@+id/main_password_tv"
+        android:layout_width="283dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="32dp"
+        android:ems="10"
+        android:hint="請輸入你的密碼"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/main_signin_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/main_account_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="帳號"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/main_account_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.177"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/main_password_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="密碼"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/main_password_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.164"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/main_title_tv"
         android:layout_width="248dp"
@@ -13,83 +71,46 @@
         android:text="訂餐平台"
         android:textAlignment="center"
         android:textSize="34sp"
-        tools:layout_editor_absoluteX="81dp"
-        tools:layout_editor_absoluteY="251dp" />
+        app:layout_constraintBottom_toTopOf="@+id/main_account_title_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.411" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="158dp"
-        android:layout_height="182dp"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="60dp"
-        tools:srcCompat="@drawable/everyone_must_eat_rice" />
-
-    <Button
-        android:id="@+id/main_register_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="註冊"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="555dp" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="沒有帳號? 馬上點我註冊，所有人都要吃到飯"
-        tools:layout_editor_absoluteX="66dp"
-        tools:layout_editor_absoluteY="614dp" />
+    <EditText
+        android:id="@+id/main_account_tv"
+        android:layout_width="278dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="28dp"
+        android:ems="10"
+        android:hint="請輸入你的帳號"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/main_password_title_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/main_signin_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="登入"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="499dp" />
-
-    <EditText
-        android:id="@+id/main_password_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="請輸入你的密碼"
-        android:inputType="textPassword"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="438dp" />
-
-    <TextView
-        android:id="@+id/main_account_title_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="帳號"
-        tools:layout_editor_absoluteX="107dp"
-        tools:layout_editor_absoluteY="312dp" />
-
-    <EditText
-        android:id="@+id/main_account_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="請輸入你的帳號"
-        android:inputType="text"
-        tools:layout_editor_absoluteX="107dp"
-        tools:layout_editor_absoluteY="342dp" />
-
-    <TextView
-        android:id="@+id/main_password_title_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="密碼"
-        tools:layout_editor_absoluteX="107dp"
-        tools:layout_editor_absoluteY="406dp" />
+        android:layout_marginBottom="20dp"
+        android:text="登入，現在就馬上吃到飯"
+        app:layout_constraintBottom_toTopOf="@+id/main_register_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="198dp"
-        android:layout_height="58dp"
+        android:layout_width="196dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="44dp"
         android:text="商家管理入口"
-        tools:layout_editor_absoluteX="106dp"
-        tools:layout_editor_absoluteY="657dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

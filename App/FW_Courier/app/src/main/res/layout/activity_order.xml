@@ -6,4 +6,52 @@
     android:layout_height="match_parent"
     tools:context=".OrderActivity">
 
+    <ListView
+        android:id="@+id/2222"
+        android:layout_width="362dp"
+        android:layout_height="315dp"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="73dp" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="有啥飯可選"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="23dp"
+        tools:layout_editor_absoluteY="26dp" />
+
+    <TextView
+        android:id="@+id/text5555555"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="選錯飯?點一下點錯的項目就可以取消"
+        tools:layout_editor_absoluteX="23dp"
+        tools:layout_editor_absoluteY="445dp" />
+
+    <ListView
+        android:id="@+id/88888888"
+        android:layout_width="357dp"
+        android:layout_height="169dp"
+        tools:layout_editor_absoluteX="23dp"
+        tools:layout_editor_absoluteY="476dp" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="送出訂單"
+        tools:layout_editor_absoluteX="115dp"
+        tools:layout_editor_absoluteY="667dp" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="選好的飯"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="23dp"
+        tools:layout_editor_absoluteY="403dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

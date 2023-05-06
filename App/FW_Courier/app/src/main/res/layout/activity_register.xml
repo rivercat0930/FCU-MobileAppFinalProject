@@ -22,15 +22,6 @@
         tools:layout_editor_absoluteX="146dp"
         tools:layout_editor_absoluteY="526dp" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="99dp"
-        tools:layout_editor_absoluteY="16dp"
-        tools:src="@tools:sample/avatars"
-        tools:srcCompat="@drawable/everyone_must_eat_rice" />
-
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
