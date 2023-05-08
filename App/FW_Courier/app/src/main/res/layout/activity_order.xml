@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="選錯飯?點一下點錯的項目就可以取消"
+        android:text="選錯飯?選取進行取消"
         app:layout_constraintBottom_toTopOf="@+id/mealWasChoosed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.167"
