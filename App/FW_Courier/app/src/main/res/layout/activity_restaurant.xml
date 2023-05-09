@@ -11,28 +11,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="目前訂單"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/_dynamic"
+        android:textSize="28sp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/cotoumer_meals"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintVertical_bias="0.574" />
 
     <ListView
-        android:layout_width="347dp"
-        android:layout_height="510dp"
+        android:id="@+id/cotoumer_meals"
+        android:layout_width="350dp"
+        android:layout_height="500dp"
         android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/button12"
+        app:layout_constraintBottom_toTopOf="@+id/btn_mng_meals"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
+        android:id="@+id/btn_mng_meals"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="40dp"
         android:text="管理你賣的飯"
+        android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
