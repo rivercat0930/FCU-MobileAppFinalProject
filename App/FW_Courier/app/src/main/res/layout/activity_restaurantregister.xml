@@ -10,116 +10,125 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="現在就註冊，讓我們一起都讓大家吃到飯"
-        android:textSize="20sp"
+        android:layout_marginTop="40dp"
+        android:text="\t\t\t\t\t\t\t\t\t現在註冊\n跟我們一起讓大家吃到飯"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/textView21"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.818" />
+        app:layout_constraintVertical_bias="0.468" />
 
     <EditText
-        android:id="@+id/editTextTextPassword3"
-        android:layout_width="237dp"
-        android:layout_height="77dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:hint="請再次輸入你的密碼"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/button6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
-        android:text="確定加入"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextText3"
-        android:layout_width="242dp"
-        android:layout_height="71dp"
-        android:layout_marginBottom="12dp"
-        android:ems="10"
-        android:hint="請輸入你的帳號"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/textView10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/et_setMngPasswordCheck"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="16dp"
-        android:text="商家名稱"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextTextPassword2"
-        android:layout_width="241dp"
-        android:layout_height="65dp"
-        android:layout_marginBottom="20dp"
         android:ems="10"
-        android:hint="請輸入你的密碼"
+        android:hint="請再輸入一次"
+
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/textView12"
+        app:layout_constraintBottom_toTopOf="@+id/btn_setMngEnter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="帳號"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextText4"
-        android:layout_width="251dp"
-        android:layout_height="72dp"
         android:layout_marginBottom="12dp"
-        android:ems="10"
-        android:hint="請輸入你的店家名稱"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/textView11"
+        android:text="帳號"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/et_setMngAccount"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.145"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:text="密碼"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword2"
+        android:layout_marginBottom="12dp"
+        android:text="商家名稱"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/et_setRestaurantName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.155"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="密碼確認"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword3"
+        android:layout_marginBottom="12dp"
+        android:text="確認密碼"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/et_setMngPasswordCheck"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.155"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="密碼"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/et_setMngPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/et_setMngPassword"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:hint="請輸入你的密碼"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/textView12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/et_setRestaurantName"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:hint="請輸入你的店家名稱"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/textView11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/et_setMngAccount"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:hint="請輸入你的帳號"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/textView10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_setMngEnter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:text="確定加入"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
