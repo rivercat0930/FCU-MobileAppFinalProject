@@ -6,4 +6,51 @@
     android:layout_height="match_parent"
     tools:context=".PayActivity">
 
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="\t\t\t\t\t\t\t\t\t\t您的訂單已送出\n讓每個人都吃到飯，是我們的責任"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/lv_userChooseMeals"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.109" />
+
+    <ListView
+        android:id="@+id/lv_userChooseMeals"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="請於15分鐘後至店家報號付款\n\t\t\t\t\t\t\t即可領取你的飯"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_moreMeals"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_moreMeals"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="60dp"
+        android:text="我還要吃飯"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
