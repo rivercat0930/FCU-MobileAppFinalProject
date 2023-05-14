@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RestaurantSettingActivity">
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="商家管理頁面"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_itemPrice"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="48dp"
+        android:ems="10"
+        android:hint="請輸入商品價格"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="195dp" />
+
+    <EditText
+        android:id="@+id/et_itemName"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="4dp"
+        android:ems="10"
+        android:hint="請輸入商品名稱"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/et_itemDesciption"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/et_itemDesciption"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="4dp"
+        android:ems="10"
+        android:hint="請輸入商品描述"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/et_itemPrice"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:text="商品價格"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/et_itemPrice"
+        app:layout_constraintHorizontal_bias="0.033"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="209dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginBottom="17dp"
+        android:text="商品描述"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView29"
+        app:layout_constraintEnd_toStartOf="@+id/et_itemDesciption"
+        app:layout_constraintHorizontal_bias="0.033"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginBottom="17dp"
+        android:text="商品名稱"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView27"
+        app:layout_constraintEnd_toStartOf="@+id/et_itemName"
+        app:layout_constraintHorizontal_bias="0.033"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_addMeal"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:text="新增商品"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/et_itemPrice"
+        tools:layout_editor_absoluteX="145dp" />
+
+    <ListView
+        android:id="@+id/lv_customer_meals"
+        android:layout_width="350dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_mng_setUp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView24"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <Button
+        android:id="@+id/btn_mng_setUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="更改完成"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="100dp"
+        android:text="選取刪除你所賣的飯"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/btn_deleteMeals"
+        app:layout_constraintHorizontal_bias="0.026"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView29" />
+
+    <Button
+        android:id="@+id/btn_deleteMeals"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="32dp"
+        android:text="刪除商品"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="321dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
