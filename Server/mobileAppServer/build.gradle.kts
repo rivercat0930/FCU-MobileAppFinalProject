@@ -13,6 +13,7 @@ repositories {
 }
 
 dependencies {
+	implementation("commons-codec:commons-codec:1.15")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	runtimeOnly("com.h2database:h2")
