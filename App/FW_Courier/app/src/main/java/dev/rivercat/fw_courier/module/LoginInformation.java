@@ -1,10 +1,10 @@
 package dev.rivercat.fw_courier.module;
 
-public class LoginMessage {
+public class LoginInformation {
     String username;
     String password;
 
-    public LoginMessage(String username, String password) {
+    public LoginInformation(String username, String password) {
         this.username = username;
         this.password = password;
     }
