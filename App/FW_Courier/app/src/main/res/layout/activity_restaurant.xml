@@ -7,32 +7,32 @@
     tools:context=".RestaurantActivity">
 
     <TextView
-        android:id="@+id/textView30"
+        android:id="@+id/restaurant_tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="目前訂單"
         android:textSize="28sp"
         android:layout_marginTop="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/cotoumer_meals"
+        app:layout_constraintBottom_toTopOf="@+id/restaurant_lv_order"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.574" />
 
     <ListView
-        android:id="@+id/cotoumer_meals"
+        android:id="@+id/restaurant_lv_order"
         android:layout_width="350dp"
         android:layout_height="500dp"
         android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_mng_meals"
+        app:layout_constraintBottom_toTopOf="@+id/restaurant_btn_setting"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btn_mng_meals"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
+        android:id="@+id/restaurant_btn_setting"
+        android:layout_width="148dp"
+        android:layout_height="52dp"
         android:layout_marginBottom="40dp"
         android:text="管理你賣的飯"
         android:textSize="16dp"
