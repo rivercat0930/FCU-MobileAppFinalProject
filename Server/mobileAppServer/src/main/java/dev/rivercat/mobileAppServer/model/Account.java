@@ -15,15 +15,11 @@ public class Account {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "email")
-    private String email;
-
     public Account() {}
 
-    public Account(String account, String password, String email) {
+    public Account(String account, String password) {
         this.username = account;
         this.password = password;
-        this.email = email;
     }
 
     public long getId() {
@@ -50,11 +46,4 @@ public class Account {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }
