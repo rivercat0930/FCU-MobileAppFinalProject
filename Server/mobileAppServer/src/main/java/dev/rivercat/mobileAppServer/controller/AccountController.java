@@ -34,11 +34,9 @@ public class AccountController {
     @PostMapping("/register")
     public ResponseEntity<Account> registerAccount(@RequestBody Account account) {
         boolean isLackInformation = account.getUsername() == null ||
-                account.getPassword() == null ||
-                account.getEmail() == null;
+                account.getPassword() == null;
 
-        boolean isRegister = accountRepository.findAccountByUsername(account.getUsername()) == null &&
-                accountRepository.findAccountByEmail(account.getEmail()) == null;
+        boolean isRegister = accountRepository.findAccountByUsername(account.getUsername()) == null;
 
         if (isLackInformation)
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
