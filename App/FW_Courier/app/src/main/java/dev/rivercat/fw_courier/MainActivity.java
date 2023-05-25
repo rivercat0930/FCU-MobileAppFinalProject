@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnLogin;
     private Button btnRegister;
     private Button btnRestaurant;
+    private ImageView main_image_logo;
     private APIService apiService;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.main_btn_login);
         btnRegister = findViewById(R.id.main_btn_register);
         btnRestaurant = findViewById(R.id.main_btn_restaurant);
+
+        main_image_logo = findViewById(R.id.main_image_logo);
+        main_image_logo.setImageResource(R.drawable.everyone_must_eat_rice);
 
         apiService = RetrofitManager.getInstance().getAPI();
 
