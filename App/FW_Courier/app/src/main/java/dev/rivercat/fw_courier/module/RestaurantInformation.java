@@ -3,15 +3,13 @@ package dev.rivercat.fw_courier.module;
 import androidx.annotation.NonNull;
 
 public class RestaurantInformation {
-  public class RegisterInformation {
-
     private String restaurantName;
     private Double rate;
     private String description;
 
 
 
-    public Restaurantformation(String restaurantName, Double rate, String description) {
+    public RestaurantInformation(String restaurantName, Double rate, String description) {
       this.restaurantName = restaurantName;
       this.rate = rate;
       this.description = description;
@@ -56,4 +54,4 @@ public class RestaurantInformation {
     }
 
   }
-}
+
