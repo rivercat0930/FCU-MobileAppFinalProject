@@ -9,6 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import dev.rivercat.fw_courier.connect.APIService;
+import dev.rivercat.fw_courier.connect.RetrofitManager;
+import dev.rivercat.fw_courier.module.RestaurantInformation;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class RestaurantRegisterActivity extends AppCompatActivity {
 
     private EditText etRestaurantName;
@@ -16,6 +23,7 @@ public class RestaurantRegisterActivity extends AppCompatActivity {
     private EditText etPassword;
     private EditText etPassword2;
     private Button btnRegister;
+    private APIService apiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +35,7 @@ public class RestaurantRegisterActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.restaurantregister_et_password);
         etPassword2 = findViewById(R.id.restaurantregister_et_password2);
         btnRegister = findViewById(R.id.restaurantregister_btn_rigister);
+        apiService = RetrofitManager.getInstance().getAPI();
 
         View.OnClickListener onClickListener = v -> {
             if (v.getId() == R.id.restaurantregister_btn_rigister) {
@@ -49,10 +58,30 @@ public class RestaurantRegisterActivity extends AppCompatActivity {
                 }
 
                 // connect server and get response
+                RestaurantInformation restaurantInformation =
+                        new RestaurantInformation(etRestaurantName.getText().toString(),
+                                etAccount.getText().toString(),
+                                etPassword.getText().toString());
+                Call<Void> call = apiService.restaurantRegister(restaurantInformation);
+                call.enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+                        if (response.code() == 201) {
+                            Toast.makeText(RestaurantRegisterActivity.this, "註冊成功", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(RestaurantRegisterActivity.this, RestaurantSigninActivity.class);
+                            startActivity(intent);
+                        }
+                        else {
+                            System.out.println(response.code());
+                            Toast.makeText(RestaurantRegisterActivity.this, "Error code: " + response.code(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
 
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
 
-                Intent intent = new Intent(RestaurantRegisterActivity.this, RestaurantSigninActivity.class);
-                startActivity(intent);
+                    }
+                });
             }
         };
 
