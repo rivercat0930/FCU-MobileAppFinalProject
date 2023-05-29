@@ -22,4 +22,7 @@ public interface APIService {
 
     @POST("/restaurant/register")
     Call<Void> restaurantRegister(@Body RestaurantInformation restaurantInformation);
+
+    @POST("/restaurant/login")
+    Call<Void> restaurantLogin(@Body RestaurantInformation restaurantInformation);
 }

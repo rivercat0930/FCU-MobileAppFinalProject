@@ -23,6 +23,25 @@ public class RestaurantController {
         return new ResponseEntity<>(restaurants, HttpStatus.OK);
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<Void> loginRestaurant(@RequestBody Restaurant restaurant) {
+        boolean isRegister = restaurantRepository.findRestaurantByAccount(restaurant.getAccount()) == null;
+
+        if (isRegister)
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+
+        Restaurant targetRestaurant = restaurantRepository.findRestaurantByAccount(restaurant.getAccount());
+        restaurant.setPassword(hash(restaurant.getAccount() + restaurant.getPassword()));
+
+        boolean isMatch = restaurant.getAccount().equals(targetRestaurant.getAccount()) &&
+                restaurant.getPassword().equals(targetRestaurant.getPassword());
+
+        if (isMatch)
+            return ResponseEntity.status(HttpStatus.OK).build();
+        else
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    }
+
     @PostMapping("/register")
     public ResponseEntity<Void> registerRestaurant(@RequestBody Restaurant restaurant) {
         // check if lack any information
@@ -37,7 +56,7 @@ public class RestaurantController {
         Restaurant postData = new Restaurant();
         postData.setRestaurantName(restaurant.getRestaurantName());
         postData.setAccount(restaurant.getAccount());
-        postData.setPassword(hash(restaurant.getPassword()));
+        postData.setPassword(hash(restaurant.getAccount() + restaurant.getPassword()));
         restaurantRepository.save(postData);
 
         return ResponseEntity.status(HttpStatus.CREATED).build();

@@ -25,16 +25,13 @@ public class RestaurantSigninActivity extends AppCompatActivity {
         btnSignIn = findViewById(R.id.restaurantsignin_btn_signin);
         btnRegister = findViewById(R.id.restaurantsignin_btn_register);
 
-        View.OnClickListener onClickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(v.getId()==R.id.restaurantsignin_btn_signin){
-                    Intent intent = new Intent(RestaurantSigninActivity.this, RestaurantActivity.class);
-                    startActivity(intent);
-                }else if(v.getId()==R.id.restaurantsignin_btn_register){
-                    Intent intent = new Intent(RestaurantSigninActivity.this, RestaurantRegisterActivity.class);
-                    startActivity(intent);
-                }
+        View.OnClickListener onClickListener = v -> {
+            if(v.getId()==R.id.restaurantsignin_btn_signin){
+                Intent intent = new Intent(RestaurantSigninActivity.this, RestaurantActivity.class);
+                startActivity(intent);
+            }else if(v.getId()==R.id.restaurantsignin_btn_register){
+                Intent intent = new Intent(RestaurantSigninActivity.this, RestaurantRegisterActivity.class);
+                startActivity(intent);
             }
         };
 
