@@ -18,13 +18,23 @@ public class Restaurant {
     @Column(name = "description")
     String description;
 
+    @Column(name = "account")
+    String account;
+
+    @Column(name = "password")
+    String password;
+
     public Restaurant() {
+        this.rate = 4.5;
+        this.description = "Nice的餐廳";
     }
 
-    public Restaurant(String restaurantName, Double rate, String description) {
+    public Restaurant(String restaurantName, String account, String password) {
         this.restaurantName = restaurantName;
-        this.rate = rate;
-        this.description = description;
+        this.rate = 4.5;
+        this.description = "Nice的餐廳";
+        this.account = account;
+        this.password = password;
     }
 
     public String getRestaurantName() {
@@ -49,5 +59,21 @@ public class Restaurant {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
