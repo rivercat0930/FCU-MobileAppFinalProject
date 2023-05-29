@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import dev.rivercat.fw_courier.module.LoginInformation;
 import dev.rivercat.fw_courier.module.RegisterInformation;
+import dev.rivercat.fw_courier.module.RestaurantInformation;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -17,5 +18,5 @@ public interface APIService {
     Call<Void> register(@Body RegisterInformation registerInformation);
 
     @GET("/restaurant/all")
-    Call<ArrayList<RegisterInformation>>restaurant();
+    Call<ArrayList<RestaurantInformation>>restaurant();
 }

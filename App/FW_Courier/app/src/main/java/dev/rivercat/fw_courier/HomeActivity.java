@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.telecom.Call;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
@@ -14,8 +13,12 @@ import java.util.ArrayList;
 
 import dev.rivercat.fw_courier.connect.APIService;
 import dev.rivercat.fw_courier.connect.RetrofitManager;
+import dev.rivercat.fw_courier.module.RegisterInformation;
+import dev.rivercat.fw_courier.module.RestaurantInformation;
+import dev.rivercat.fw_courier.view.RestaurantView;
 import retrofit2.Response;
-
+import retrofit2.Callback;
+import retrofit2.Call;
 public class HomeActivity extends AppCompatActivity {
 
     private Button btnHistory;
@@ -33,16 +36,20 @@ public class HomeActivity extends AppCompatActivity {
 
 
         apiService = RetrofitManager.getInstance().getAPI();
-        Call<ArrayList<RestauranInformation>> call = apiService.restaurants();
+        Call<ArrayList<RestaurantInformation>> call = apiService.restaurant();
 
-        call.enqueue(new Callback<ArrayList<RestaurantInformation>>call=apiService.restaurants();
+
+        call.enqueue(new Callback<ArrayList<RestaurantInformation>>(){
+
+
         @Override
-        public void onResponse(Call<ArrayList<RestaurantInformation>>call, Response<ArrayList<RestaurantInformation>>response) {
+        public void onResponse(Call<ArrayList<RestaurantInformation>>
+                                 call, Response<ArrayList<RestaurantInformation>>response) {
             System.out.println("restaurants list status:"+response.code());
             handleShow(response.body());
         }
         @Override
-        public void onFailure(Call<ArrayList<RestaurantInformation>>call,Throwable){
+        public void onFailure(Call<ArrayList<RestaurantInformation>>call,Throwable t){
 
         }});
         View.OnClickListener onClickListener = new View.OnClickListener() {
