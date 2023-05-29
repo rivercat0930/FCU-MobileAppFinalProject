@@ -45,18 +45,21 @@ public class RegisterActivity extends AppCompatActivity {
                             etPassword2.getText().toString().isEmpty();
                     if(isEmpty){
                         Toast.makeText(RegisterActivity.this,"請輸入完整資訊",Toast.LENGTH_SHORT).show();
+                        return;
                     }
 
                     //check password are the same
                     boolean isPasswordSame = etPassword.getText().toString().equals(etPassword2.getText().toString());
                     if (!isPasswordSame){
                         Toast.makeText(RegisterActivity.this,"密碼必須相同",Toast.LENGTH_SHORT).show();
+                        return;
                     }
                     //send to server
                     //successfull then turn back main activity
                     RegisterInformation registerInformation =
                             new RegisterInformation(etAccount.getText().toString(),etPassword.getText().toString());
-                                handleRegisterConnectEvent(registerInformation);
+
+                    handleRegisterConnectEvent(registerInformation);
                 }
             }
         };
