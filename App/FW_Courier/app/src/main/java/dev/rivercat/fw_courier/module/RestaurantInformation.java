@@ -2,6 +2,7 @@ package dev.rivercat.fw_courier.module;
 
 import androidx.annotation.NonNull;
 
+public class RestaurantInformation {
   public class RegisterInformation {
 
     private String restaurantName;
@@ -51,4 +52,4 @@ import androidx.annotation.NonNull;
     }
 
   }
-  
+}

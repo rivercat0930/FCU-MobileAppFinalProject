@@ -9,6 +9,6 @@ public class RestaurantView {
 
   public class RestaurantView extends BaseAdapter{
     private Context context;
-    private ArrayList<Restaurantformation>
+    private ArrayList<Restaurantformation>restaurant
   }
 }
