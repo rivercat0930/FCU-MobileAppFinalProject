@@ -17,5 +17,5 @@ public interface APIService {
     Call<Void> register(@Body RegisterInformation registerInformation);
 
     @GET("/restaurant/all")
-    Call<ArrayList<RegisterInformation>>restaurant();
+    Call<ArrayList<RegisterInformation>> restaurant();
 }
