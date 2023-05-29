@@ -4,14 +4,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.telecom.Call;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
+
+import java.util.ArrayList;
+
+import dev.rivercat.fw_courier.connect.APIService;
+import dev.rivercat.fw_courier.connect.RetrofitManager;
+import retrofit2.Response;
 
 public class HomeActivity extends AppCompatActivity {
 
     private Button btnHistory;
     private ImageView home_image_logo;
+    private APIService apiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +31,20 @@ public class HomeActivity extends AppCompatActivity {
         home_image_logo = findViewById(R.id.home_image_logo);
         home_image_logo.setImageResource(R.drawable.everyone_must_eat_rice);
 
+
+        apiService = RetrofitManager.getInstance().getAPI();
+        Call<ArrayList<RestauranInformation>> call = apiService.restaurants();
+
+        call.enqueue(new Callback<ArrayList<RestaurantInformation>>call=apiService.restaurants();
+        @Override
+        public void onResponse(Call<ArrayList<RestaurantInformation>>call, Response<ArrayList<RestaurantInformation>>response) {
+            System.out.println("restaurants list status:"+response.code());
+            handleShow(response.body());
+        }
+        @Override
+        public void onFailure(Call<ArrayList<RestaurantInformation>>call,Throwable){
+
+        }});
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,4 +58,9 @@ public class HomeActivity extends AppCompatActivity {
         btnHistory.setOnClickListener(onClickListener);
 
     }
+    private void handleShow(ArrayList<RestaurantInformation>restaurantInformations){
+        RestaurantView restaurantView = new  RestaurantView(this,restaurantInformations);
+        GridView home_list_gv = findViewById(R.id.home_list_gv);
+        home_list_gv.setAdapter(restaurantView);
+}
 }
