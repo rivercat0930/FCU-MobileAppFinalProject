@@ -19,7 +19,18 @@ public class HistoryController {
     public ResponseEntity<ArrayList<String>> getHistories(@PathVariable("user") String user) {
         ArrayList<History> userHistory = historyRepository.findHistoryByUsername(user);
 
-        return new ResponseEntity<>(userHistory.get(0).getHistory(), HttpStatus.OK);
+        ArrayList<String> retString = new ArrayList<>();
+        // return last 5 history
+        for (int i = 0; i < 5; i++) {
+            // size check
+            if (userHistory.size() - 1 - i < 0)
+                break;
+
+            History currentHistory = userHistory.get(userHistory.size() - 1 - i);
+            retString.addAll(currentHistory.getHistory());
+        }
+
+        return new ResponseEntity<>(retString, HttpStatus.OK);
     }
 
     @PostMapping("/send")
