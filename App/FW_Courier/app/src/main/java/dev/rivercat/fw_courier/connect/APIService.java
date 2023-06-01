@@ -27,6 +27,6 @@ public interface APIService {
     @POST("/restaurant/login")
     Call<Void> restaurantLogin(@Body RestaurantInformation restaurantInformation);
 
-    @GET("/historry/{username}")
-    Call<ArrayList<String>> getHistory(@Path("username")String username);
+    @GET("/history/{username}")
+    Call<ArrayList<String>> getHistory(@Path("username") String username);
 }
