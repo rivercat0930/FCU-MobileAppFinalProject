@@ -10,6 +10,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import dev.rivercat.fw_courier.connect.APIService;
 import dev.rivercat.fw_courier.connect.RetrofitManager;
 import dev.rivercat.fw_courier.module.LoginInformation;
@@ -79,6 +83,15 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println(response.code());
                 if (response.code() == 200) {
                     Toast.makeText(MainActivity.this, "登入成功", Toast.LENGTH_SHORT).show();
+                    File prjDir = getFilesDir();
+                    File outputFile = new File(prjDir,"username.txt");
+                    try {
+                        FileOutputStream fos = new FileOutputStream(outputFile);
+                        fos.write(username.getBytes());
+                        fos.close();
+                    }catch (IOException e){
+                        throw new RuntimeException(e);
+                    }
                     Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                     startActivity(intent);
                 }
