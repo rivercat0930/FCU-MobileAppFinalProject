@@ -9,6 +9,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface APIService {
     @POST("/account/login")
@@ -25,4 +26,7 @@ public interface APIService {
 
     @POST("/restaurant/login")
     Call<Void> restaurantLogin(@Body RestaurantInformation restaurantInformation);
+
+    @GET("/historry/{username}")
+    Call<ArrayList<String>> getHistory(@Path("username")String username);
 }
