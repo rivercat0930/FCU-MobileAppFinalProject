@@ -18,7 +18,12 @@ public class RestaurantInformation {
         this.password = password;
 
     }
-
+    public String getName() {
+        return restaurantName;
+    }
+    public void setName(String name) {
+        this.restaurantName = name;
+    }
     public String getRestaurantName() {
         return restaurantName;
     }

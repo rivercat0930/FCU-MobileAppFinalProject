@@ -11,7 +11,7 @@
         android:layout_height="150dp"
         android:orientation="horizontal"
         android:layout_marginTop="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/home_list_gv"
+        app:layout_constraintBottom_toTopOf="@+id/home_list_lv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -45,15 +45,15 @@
 
     </LinearLayout>
 
-    <GridView
-        android:id="@+id/home_list_gv"
-        android:layout_width="351dp"
-        android:layout_height="465dp"
-        android:layout_marginBottom="40dp"
+    <ListView
+        android:id="@+id/home_list_lv"
+        android:layout_width="363dp"
+        android:layout_height="515dp"
+        android:layout_marginBottom="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    </GridView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
