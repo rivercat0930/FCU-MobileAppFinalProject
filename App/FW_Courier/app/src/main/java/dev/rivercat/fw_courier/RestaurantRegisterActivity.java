@@ -12,6 +12,7 @@ import android.widget.Toast;
 import dev.rivercat.fw_courier.connect.APIService;
 import dev.rivercat.fw_courier.connect.RetrofitManager;
 import dev.rivercat.fw_courier.module.RestaurantInformation;
+import dev.rivercat.fw_courier.view.Database;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -24,6 +25,7 @@ public class RestaurantRegisterActivity extends AppCompatActivity {
     private EditText etPassword2;
     private Button btnRegister;
     private APIService apiService;
+    private Database database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +38,40 @@ public class RestaurantRegisterActivity extends AppCompatActivity {
         etPassword2 = findViewById(R.id.restaurantregister_et_password2);
         btnRegister = findViewById(R.id.restaurantregister_btn_rigister);
         apiService = RetrofitManager.getInstance().getAPI();
+        database = new Database(this);
+        database.open();
 
-        View.OnClickListener onClickListener = v -> {
+        View.OnClickListener onClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (v.getId() == R.id.restaurantregister_btn_rigister) {
+                    String account = etAccount.getText().toString();
+                    String password = etPassword.getText().toString();
+                    String name = etRestaurantName.getText().toString();
+                    if (account.isEmpty() || password.isEmpty()|| name.isEmpty()){
+                        Toast.makeText(RestaurantRegisterActivity.this, "請輸入完整資訊", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    boolean isPasswordSame = etPassword.getText().toString().equals(etPassword2.getText().toString());
+
+                    if (!isPasswordSame) {
+                        Toast.makeText(RestaurantRegisterActivity.this, "密碼必須相同", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    database.addRestaurant(name,account, password);
+
+                    Toast.makeText(RestaurantRegisterActivity.this, "註冊成功", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(RestaurantRegisterActivity.this, RestaurantSigninActivity.class);
+                    startActivity(intent);
+
+                }
+            }
+
+        };
+
+
+        /*View.OnClickListener onClickListener = v -> {
             if (v.getId() == R.id.restaurantregister_btn_rigister) {
                 // check null field
                 boolean isNull = etRestaurantName.getText().toString().isEmpty() ||
@@ -83,7 +117,7 @@ public class RestaurantRegisterActivity extends AppCompatActivity {
                     }
                 });
             }
-        };
+        };*/
 
         btnRegister.setOnClickListener(onClickListener);
 
