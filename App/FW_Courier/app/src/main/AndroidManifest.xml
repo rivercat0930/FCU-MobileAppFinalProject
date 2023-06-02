@@ -19,22 +19,22 @@
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".OrderActivity"
+            android:name=".RestaurantSettingActivity"
             android:exported="false" />
         <activity
-            android:name=".PayActivity"
+            android:name=".OrderActivity"
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".RestaurantActivity"
+            android:name=".PayActivity"
             android:exported="false" />
         <activity
             android:name=".RestaurantRegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".RestaurantSettingActivity"
+            android:name=".RestaurantActivity"
             android:exported="false" />
         <activity
             android:name=".RestaurantSigninActivity"
