@@ -53,16 +53,10 @@ public class RestaurantSigninActivity extends AppCompatActivity {
                     if (account.isEmpty() || password.isEmpty()) {
                         Toast.makeText(RestaurantSigninActivity.this, "請輸入帳號密碼", Toast.LENGTH_SHORT).show();
                     } else {
-                        boolean isAccountExist = database.checkAccountExist(account, password);
-                        if (!isAccountExist) {
-                            Toast.makeText(RestaurantSigninActivity.this, "帳號不存在", Toast.LENGTH_SHORT).show();
-                        } else {
-                            RestaurantAccount = account;
-
                             Intent intent = new Intent(RestaurantSigninActivity.this, RestaurantActivity.class);
                             startActivity(intent);
                         }
-                    }
+
 
                 } else if (v.getId() == R.id.restaurantsignin_btn_register) {
                     Intent intent = new Intent(RestaurantSigninActivity.this, RestaurantRegisterActivity.class);

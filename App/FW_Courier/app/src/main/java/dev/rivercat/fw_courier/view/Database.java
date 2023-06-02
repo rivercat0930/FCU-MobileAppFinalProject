@@ -27,7 +27,6 @@ public class Database {
 
     private static final String CRATE_FOOD_TABLE = "CREATE TABLE IF NOT EXISTS Food ("+
             "_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            "restaurant TEXT NOT NULL, " +
             "name TEXT NOT NULL, " +
             "description TEXT NOT NULL,"+
             "price INTEGER NOT NULL )";
@@ -56,9 +55,8 @@ public class Database {
         database.insert("Restaurant", null, values);
     }
 
-    public void addFood(String restaurant, String name,String description,int price) {
+    public void addFood(String name,String description,int price) {
         ContentValues values = new ContentValues();
-        values.put("restaurant",restaurant);
         values.put("name",name);
         values.put("description",description);
         values.put("price",price);
@@ -66,11 +64,8 @@ public class Database {
     }
 
     public Cursor getAllFoods() {
-        String query = "SELECT restaurant FROM Food WHERE restaurant = ?";
-        Cursor cursor = database.rawQuery(query, new String[]{RestaurantAccount});
-        if (cursor.getCount() > 0) {
-            Toast.makeText(activity, cursor.getCount() + "成功新增", Toast.LENGTH_SHORT).show();
-        }
+        Cursor cursor = database.rawQuery("SELECT * FROM Food",null);
+        Toast.makeText(activity,cursor.getCount()+"成功新增",Toast.LENGTH_SHORT).show();
         return cursor;
     }
 

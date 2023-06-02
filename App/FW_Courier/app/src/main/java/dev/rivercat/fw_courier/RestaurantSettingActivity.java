@@ -47,13 +47,11 @@ public class                 RestaurantSettingActivity extends AppCompatActivity
                 String name=etName.getText().toString();
                 String description=etDescription.getText().toString();
                 int price=Integer.parseInt(etPrice.getText().toString());
-                String restaurant = getIntent().getStringExtra("restaurant");
-
                 if(v.getId()==R.id.restaurantsetting_btn_add){
                     if(name.isEmpty()||description.isEmpty()||String.valueOf(price).isEmpty()){
                         Toast.makeText(RestaurantSettingActivity.this, "請輸入所有資訊", Toast.LENGTH_SHORT).show();
                     }else {
-                        database.addFood(restaurant,name,description,price);
+                        database.addFood(name,description,price);
                     }
                 }else if(v.getId()==R.id.restaurantsetting_btn_del){
 
@@ -73,6 +71,7 @@ public class                 RestaurantSettingActivity extends AppCompatActivity
 
     private void showAllFood() {
         Cursor cursor = database.getAllFoods();
+
         String[] from = new String[]{"name", "description", "price"};
         int[] to = new int[]{R.id.text1, R.id.text2, R.id.text3};
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(
