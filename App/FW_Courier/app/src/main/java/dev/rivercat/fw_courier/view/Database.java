@@ -29,7 +29,7 @@ public class Database {
             "name TEXT NOT NULL, " +
             "description TEXT NOT NULL )";
 
-    private static final String CRATE_FOOD_TABLE = "CREATE TABLE IF NOT EXISTS Food ("+
+    private static final String CRATE_FOODS_TABLE = "CREATE TABLE IF NOT EXISTS Foods ("+
             "_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "name TEXT NOT NULL, " +
             "description TEXT NOT NULL,"+
@@ -48,6 +48,10 @@ public class Database {
             "_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "name TEXT NOT NULL, " +
             "price TEXT NOT NULL )";
+    private static final String CRATE_RORDER_TABLE = "CREATE TABLE IF NOT EXISTS Rorder ("+
+            "_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            "name TEXT NOT NULL, " +
+            "mode TEXT NOT NULL )";
     public Database(AppCompatActivity activity){
         this.activity = activity;
     }
@@ -56,11 +60,11 @@ public class Database {
         database.execSQL(CRATE_ACCOUNT_TABLE);
         database.execSQL(CRATE_RESTAURANT_TABLE);
         database.execSQL(CRATE_RESTAURANT2_TABLE);
-        database.execSQL(CRATE_FOOD_TABLE);
+        database.execSQL(CRATE_FOODS_TABLE);
         database.execSQL(CRATE_HISTORY_TABLE);
         database.execSQL(CRATE_MEAL_TABLE);
+        database.execSQL(CRATE_RORDER_TABLE);
         database.execSQL(CRATE_UORDER_TABLE);
-
     }
 
     public void addAccount(String account, String password) {
@@ -82,6 +86,12 @@ public class Database {
         values.put("price", price);
         database.insert("Uorder", null, values);
     }
+    public void addRorder(String name, String mode) {
+        ContentValues values = new ContentValues();
+        values.put("name", name);
+        values.put("mode", mode);
+        database.insert("Rorder", null, values);
+    }
     public void addHistory(String name, String price) {
         ContentValues values = new ContentValues();
         values.put("name", name);
@@ -101,17 +111,21 @@ public class Database {
         values.put("description", description);
         database.insert("Restaurant2", null, values);
     }
-    public void addFood(String name,String description,int price) {
+    public void addFoods(String name,String description,int price) {
         ContentValues values = new ContentValues();
         values.put("name",name);
         values.put("description",description);
         values.put("price",price);
-        database.insert("Food", null, values);
+        database.insert("Foods", null, values);
 
     }
 
     public Cursor getAllFoods() {
-        Cursor cursor = database.rawQuery("SELECT * FROM Food", null);
+        Cursor cursor = database.rawQuery("SELECT * FROM Foods", null);
+        return cursor;
+    }
+    public Cursor getRorder() {
+        Cursor cursor = database.rawQuery("SELECT * FROM Rorder", null);
         return cursor;
     }
     public Cursor getAllMeal() {

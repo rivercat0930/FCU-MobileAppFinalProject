@@ -27,6 +27,8 @@ public class PayActivity extends AppCompatActivity {
         btnHome = findViewById(R.id.pay_btn_home);
         database=new Database(this);
         database.open();
+
+        showOrder();
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {

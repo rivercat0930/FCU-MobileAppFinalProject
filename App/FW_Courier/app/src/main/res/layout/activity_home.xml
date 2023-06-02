@@ -47,12 +47,12 @@
 
     <ListView
         android:id="@+id/home_list_lv"
-        android:layout_width="363dp"
-        android:layout_height="515dp"
+        android:layout_width="347dp"
+        android:layout_height="478dp"
         android:layout_marginBottom="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent" />
 
 

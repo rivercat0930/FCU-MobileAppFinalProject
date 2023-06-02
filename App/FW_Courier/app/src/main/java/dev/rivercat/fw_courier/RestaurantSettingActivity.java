@@ -41,6 +41,11 @@ public class                 RestaurantSettingActivity extends AppCompatActivity
         database = new Database(this);
         database.open();
 
+        database.addFoods("早安咖啡", "早安壓",25);
+        database.addFoods("午安咖啡", "就是咖啡",25);
+        database.addFoods("晚安咖啡", "含有安眠藥的咖啡",35);
+        database.addFoods("早上鬆餅", "裡面有加B群的鬆餅",40);
+        database.addFoods("中午便當", "就是普通的便當",75);
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +56,7 @@ public class                 RestaurantSettingActivity extends AppCompatActivity
                     if(name.isEmpty()||description.isEmpty()||String.valueOf(price).isEmpty()){
                         Toast.makeText(RestaurantSettingActivity.this, "請輸入所有資訊", Toast.LENGTH_SHORT).show();
                     }else {
-                        database.addFood(name,description,price);
+                        database.addFoods(name,description,price);
                     }
                 }else if(v.getId()==R.id.restaurantsetting_btn_del){
 
@@ -59,17 +64,17 @@ public class                 RestaurantSettingActivity extends AppCompatActivity
                     Intent intent = new Intent(RestaurantSettingActivity.this, RestaurantActivity.class);
                     startActivity(intent);
                 }
-                showAllFood();
+                showAllFoods();
             }
         };
 
         btnAdd.setOnClickListener(onClickListener);
         btnDel.setOnClickListener(onClickListener);
         btnFin.setOnClickListener(onClickListener);
-        showAllFood();
+        showAllFoods();
     }
 
-    private void showAllFood() {
+    private void showAllFoods() {
         Cursor cursor = database.getAllFoods();
 
         String[] from = new String[]{"name", "description", "price"};
