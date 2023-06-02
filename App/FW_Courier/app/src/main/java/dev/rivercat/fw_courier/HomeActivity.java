@@ -1,23 +1,28 @@
 package dev.rivercat.fw_courier;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import dev.rivercat.fw_courier.view.Database;
+import java.util.ArrayList;
 
+import dev.rivercat.fw_courier.connect.APIService;
+import dev.rivercat.fw_courier.connect.RetrofitManager;
+import dev.rivercat.fw_courier.module.RestaurantInformation;
+import dev.rivercat.fw_courier.view.RestaurantView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 public class HomeActivity extends AppCompatActivity {
-    private Button btnHistory;
-    private ListView lvRestaurants;
 
-    private Database database;
+    private Button btnHistory;
+    private ImageView home_image_logo;
+    private APIService apiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,18 +30,10 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         btnHistory = findViewById(R.id.home_btn_history);
-        lvRestaurants = findViewById(R.id.home_list_lv);
+        home_image_logo = findViewById(R.id.home_image_logo);
+        home_image_logo.setImageResource(R.drawable.everyone_must_eat_rice);
 
-        database = new Database(this);
-        database.open();
-        database.addRestaurant2("天天韓式料理", "好吃的韓式料理");
-        database.addRestaurant2("微積分日式料理", "讓你變聰明的日式料理");
-        database.addRestaurant2("物件導向餐廳", "高品質的西餐廳");
-        database.addRestaurant2("資料庫結構喵喵", "可愛的貓貓咖啡廳");
-        database.addRestaurant2("早安壓總部", "只賣白飯的店");
-
-        showAllRestaurants();
-        /*apiService = RetrofitManager.getInstance().getAPI();
+        apiService = RetrofitManager.getInstance().getAPI();
         Call<ArrayList<RestaurantInformation>> call = apiService.restaurant();
 
         call.enqueue(new Callback<ArrayList<RestaurantInformation>>(){
@@ -48,50 +45,23 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<ArrayList<RestaurantInformation>>call,Throwable t){
 
-            }});*/
-        lvRestaurants.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            }});
+        View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Cursor cursor = (Cursor) parent.getItemAtPosition(position);
-                if (cursor != null) {
-                    String restaurantName = cursor.getString(cursor.getColumnIndexOrThrow("name"));
-                    String restaurantDescription = cursor.getString(cursor.getColumnIndexOrThrow("description"));
-
-                    Intent intent = new Intent(HomeActivity.this, OrderActivity.class);
-                    intent.putExtra("restaurantName", restaurantName);
-                    intent.putExtra("restaurantDescription", restaurantDescription);
+            public void onClick(View v) {
+                if(v.getId()==R.id.home_btn_history){
+                    Intent intent = new Intent(HomeActivity.this, UserActivity.class);
                     startActivity(intent);
                 }
             }
-        });
+        };
 
-        btnHistory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, UserActivity.class);
-                startActivity(intent);
-            }
-        });
+        btnHistory.setOnClickListener(onClickListener);
+
     }
-
-    private void showAllRestaurants() {
-        Cursor cursor = database.getAllRestaurant2();
-        if (cursor != null) {
-            SimpleCursorAdapter adapter = new SimpleCursorAdapter(
-                    HomeActivity.this,
-                    android.R.layout.simple_list_item_2,
-                    cursor,
-                    new String[]{"name", "description"},
-                    new int[]{android.R.id.text1, android.R.id.text2},
-                    0
-            );
-            lvRestaurants.setAdapter(adapter);
-        }
+    private void handleShow(ArrayList<RestaurantInformation>restaurantInformations){
+        RestaurantView restaurantView = new  RestaurantView(this,restaurantInformations);
+        ListView home_list_gv = findViewById(R.id.home_list_lv);
+        home_list_gv.setAdapter(restaurantView);
     }
 }
-
-    /*private void handleShow(ArrayList<RestaurantInformation>restaurantInformations){
-        RestaurantView restaurantView = new  RestaurantView(this,restaurantInformations);
-        GridView home_list_gv = findViewById(R.id.home_list_gv);
-        home_list_gv.setAdapter(restaurantView);
-    }*/

@@ -17,7 +17,6 @@ import java.io.IOException;
 import dev.rivercat.fw_courier.connect.APIService;
 import dev.rivercat.fw_courier.connect.RetrofitManager;
 import dev.rivercat.fw_courier.module.LoginInformation;
-import dev.rivercat.fw_courier.view.Database;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,8 +30,6 @@ public class MainActivity extends AppCompatActivity {
     private Button btnRestaurant;
     private ImageView main_image_logo;
     private APIService apiService;
-
-    private Database database;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,30 +47,15 @@ public class MainActivity extends AppCompatActivity {
 
         apiService = RetrofitManager.getInstance().getAPI();
 
-        database = new Database(this);
-        database.open();
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // login button
                 if (v.getId() == R.id.main_btn_login) {
-                    String account = etAccount.getText().toString();
-                    String password = etPassword.getText().toString();
-                    /*if (etAccount.getText().toString().isEmpty() || etPassword.getText().toString().isEmpty())
+                    if (etAccount.getText().toString().isEmpty() || etPassword.getText().toString().isEmpty())
                         Toast.makeText(MainActivity.this, "請輸入帳號密碼", Toast.LENGTH_SHORT).show();
                     else
-                        dealWithLoginEvent(etAccount.getText().toString(), etPassword.getText().toString());*/
-                    if (account.isEmpty() || password.isEmpty()) {
-                        Toast.makeText(MainActivity.this, "請輸入帳號密碼", Toast.LENGTH_SHORT).show();
-                    } else {
-                        boolean isAccountExist = database.checkAccountExist(account, password);
-                        if (!isAccountExist) {
-                            Toast.makeText(MainActivity.this, "帳號不存在", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                            startActivity(intent);
-                        }
-                    }
+                        dealWithLoginEvent(etAccount.getText().toString(), etPassword.getText().toString());
                 }
                 else if (v.getId() == R.id.main_btn_restaurant) {
                     Intent intent = new Intent(MainActivity.this, RestaurantSigninActivity.class);
@@ -91,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(onClickListener);
     }
 
-    /*private void dealWithLoginEvent(String username, String password) {
+    private void dealWithLoginEvent(String username, String password) {
         LoginInformation loginInformation = new LoginInformation(username, password);
         Call<Void> call = apiService.login(loginInformation);
 
@@ -126,5 +108,5 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("ERROR: " + t);
             }
         });
-    }*/
+    }
 }

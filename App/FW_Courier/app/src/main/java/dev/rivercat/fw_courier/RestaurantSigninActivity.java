@@ -12,7 +12,6 @@ import android.widget.Toast;
 import dev.rivercat.fw_courier.connect.APIService;
 import dev.rivercat.fw_courier.connect.RetrofitManager;
 import dev.rivercat.fw_courier.module.RestaurantInformation;
-import dev.rivercat.fw_courier.view.Database;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -23,10 +22,7 @@ public class RestaurantSigninActivity extends AppCompatActivity {
     private EditText etPassword;
     private Button btnSignIn;
     private Button btnRegister;
-    //private APIService apiService;
-    private Database database;
-
-    public static String RestaurantAccount;
+    private APIService apiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,35 +34,9 @@ public class RestaurantSigninActivity extends AppCompatActivity {
 
         btnSignIn = findViewById(R.id.restaurantsignin_btn_signin);
         btnRegister = findViewById(R.id.restaurantsignin_btn_register);
+        apiService = RetrofitManager.getInstance().getAPI();
 
-        //apiService = RetrofitManager.getInstance().getAPI();
-
-        database = new Database(this);
-        database.open();
-        View.OnClickListener onClickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (v.getId() == R.id.restaurantsignin_btn_signin) {
-                    String account = etAccount.getText().toString();
-                    String password = etPassword.getText().toString();
-
-                    if (account.isEmpty() || password.isEmpty()) {
-                        Toast.makeText(RestaurantSigninActivity.this, "請輸入帳號密碼", Toast.LENGTH_SHORT).show();
-                    } else {
-                            Intent intent = new Intent(RestaurantSigninActivity.this, RestaurantActivity.class);
-                            startActivity(intent);
-                        }
-
-
-                } else if (v.getId() == R.id.restaurantsignin_btn_register) {
-                    Intent intent = new Intent(RestaurantSigninActivity.this, RestaurantRegisterActivity.class);
-                    startActivity(intent);
-                }
-            }
-
-            ;
-
-        /*View.OnClickListener onClickListener = v -> {
+        View.OnClickListener onClickListener = v -> {
             if(v.getId()==R.id.restaurantsignin_btn_signin){
                 boolean isNull = etAccount.getText().toString().isEmpty() ||
                         etPassword.getText().toString().isEmpty();
@@ -100,7 +70,7 @@ public class RestaurantSigninActivity extends AppCompatActivity {
             }else if(v.getId()==R.id.restaurantsignin_btn_register){
                 Intent intent = new Intent(RestaurantSigninActivity.this, RestaurantRegisterActivity.class);
                 startActivity(intent);
-            }*/
+            }
 
 
         };

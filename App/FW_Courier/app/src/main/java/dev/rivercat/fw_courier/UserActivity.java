@@ -2,7 +2,6 @@ package dev.rivercat.fw_courier;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,7 +32,6 @@ public class UserActivity extends AppCompatActivity {
     private ListView listView;
     private static Context context;
 
-    private Database database;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,13 +69,11 @@ public class UserActivity extends AppCompatActivity {
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if(v.getId()==R.id.user_btn_back){
                     Intent intent = new Intent(UserActivity.this, HomeActivity.class);
                     startActivity(intent);
                 }
             }
-
         };
 
         btnBack.setOnClickListener(onClickListener);
