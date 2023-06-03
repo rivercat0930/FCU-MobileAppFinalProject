@@ -2,6 +2,7 @@ package dev.rivercat.fw_courier.connect;
 
 import java.util.ArrayList;
 
+import dev.rivercat.fw_courier.module.HistoryInformation;
 import dev.rivercat.fw_courier.module.LoginInformation;
 import dev.rivercat.fw_courier.module.RegisterInformation;
 import dev.rivercat.fw_courier.module.RestaurantInformation;
@@ -29,4 +30,10 @@ public interface APIService {
 
     @GET("/history/{username}")
     Call<ArrayList<String>> getHistory(@Path("username") String username);
+
+    @GET("/restaurant_c2/{name}/get_order")
+    Call<ArrayList<HistoryInformation>> getOrder(@Path("name") String restaurant_name);
+
+    @POST("/restaurant_c2/done")
+    Call<Void> sendDoneMessage(@Body HistoryInformation historyInformation);
 }

@@ -97,7 +97,7 @@ public class UserActivity extends AppCompatActivity {
                     listView.setAdapter(historyView);
                 }
                 else
-                    Toast.makeText(UserActivity.this, "網路錯誤，請重新開啟程式",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UserActivity.this, "網路錯誤，或尚未點過餐點",Toast.LENGTH_SHORT).show();
             }
 
             @Override

@@ -9,6 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import dev.rivercat.fw_courier.connect.APIService;
 import dev.rivercat.fw_courier.connect.RetrofitManager;
 import dev.rivercat.fw_courier.module.RestaurantInformation;
@@ -56,6 +60,17 @@ public class RestaurantSigninActivity extends AppCompatActivity {
                         if (response.code() == 200) {
                             Toast.makeText(RestaurantSigninActivity.this, "登入成功", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(RestaurantSigninActivity.this, RestaurantActivity.class);
+
+                            File prjDir = getFilesDir();
+                            File outputFile = new File(prjDir,"username_shop.txt");
+                            try {
+                                FileOutputStream fos = new FileOutputStream(outputFile);
+                                fos.write(etAccount.getText().toString().getBytes());
+                                fos.close();
+                            }catch (IOException e){
+                                throw new RuntimeException(e);
+                            }
+
                             startActivity(intent);
                         }
                         else

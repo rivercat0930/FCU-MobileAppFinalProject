@@ -34,11 +34,13 @@ public class RestaurantSettingActivity extends AppCompatActivity {
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(v.getId()==R.id.restaurantsetting_btn_add){
+                if (v.getId() == R.id.restaurantsetting_btn_add) {
 
-                }else if(v.getId()==R.id.restaurantsetting_btn_del){
+                }
+                else if (v.getId() == R.id.restaurantsetting_btn_del) {
 
-                }else if(v.getId()==R.id.restaurantsetting_btn_fin){
+                }
+                else if (v.getId() == R.id.restaurantsetting_btn_fin) {
                     Intent intent = new Intent(RestaurantSettingActivity.this, RestaurantActivity.class);
                     startActivity(intent);
                 }
