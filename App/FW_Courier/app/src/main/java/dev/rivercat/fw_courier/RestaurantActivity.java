@@ -179,4 +179,10 @@ public class RestaurantActivity extends AppCompatActivity {
             }
         }, 10000);
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        handler.removeCallbacksAndMessages(null);
+    }
 }
