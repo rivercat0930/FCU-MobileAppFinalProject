@@ -3,9 +3,11 @@ package dev.rivercat.fw_courier;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,6 +25,7 @@ public class HomeActivity extends AppCompatActivity {
     private Button btnHistory;
     private ImageView home_image_logo;
     private APIService apiService;
+    private ListView home_list_lv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,7 @@ public class HomeActivity extends AppCompatActivity {
         btnHistory = findViewById(R.id.home_btn_history);
         home_image_logo = findViewById(R.id.home_image_logo);
         home_image_logo.setImageResource(R.drawable.everyone_must_eat_rice);
+        home_list_lv = findViewById(R.id.home_list_lv);
 
         apiService = RetrofitManager.getInstance().getAPI();
         Call<ArrayList<RestaurantInformation>> call = apiService.restaurant();
@@ -56,11 +60,19 @@ public class HomeActivity extends AppCompatActivity {
             }
         };
 
-        btnHistory.setOnClickListener(onClickListener);
+        AdapterView.OnItemClickListener onItemClickListener = (adapterView, view, i, l) -> {
+            TextView textView = view.findViewById(R.id.restaurant_show_tv_name);
+            String name = textView.getText().toString();
+            Intent intent = new Intent(HomeActivity.this, OrderActivity.class);
+            intent.putExtra("name", name);
+            startActivity(intent);
+        };
 
+        btnHistory.setOnClickListener(onClickListener);
+        home_list_lv.setOnItemClickListener(onItemClickListener);
     }
     private void handleShow(ArrayList<RestaurantInformation>restaurantInformations){
-        RestaurantView restaurantView = new  RestaurantView(this,restaurantInformations);
+        RestaurantView restaurantView = new RestaurantView(this,restaurantInformations);
         ListView home_list_gv = findViewById(R.id.home_list_lv);
         home_list_gv.setAdapter(restaurantView);
     }

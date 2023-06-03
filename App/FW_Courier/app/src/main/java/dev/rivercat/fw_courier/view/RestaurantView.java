@@ -39,7 +39,7 @@ public class RestaurantView extends BaseAdapter{
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         if(view == null)
-            view =LayoutInflater.from(context).inflate(R.layout.restaurant_show,viewGroup,false);
+            view = LayoutInflater.from(context).inflate(R.layout.restaurant_show,viewGroup,false);
         RestaurantInformation information = restaurantInformations.get(i);
         TextView name = (TextView) view.findViewById(R.id.restaurant_show_tv_name);
         name.setText(information.getRestaurantName());

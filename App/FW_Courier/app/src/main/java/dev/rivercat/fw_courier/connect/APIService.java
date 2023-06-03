@@ -46,4 +46,7 @@ public interface APIService {
 
     @GET("/restaurant_food/{restaurant_name}")
     Call<ArrayList<FoodInformation>> getFoodInformationFromServer(@Path("restaurant_name") String restaurantName);
+
+    @POST("/history/send")
+    Call<Void> sendOrderToServer(@Body HistoryInformation historyInformation);
 }

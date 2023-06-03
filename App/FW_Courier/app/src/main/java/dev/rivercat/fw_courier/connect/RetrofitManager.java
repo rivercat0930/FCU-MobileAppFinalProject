@@ -9,7 +9,8 @@ public class RetrofitManager {
 
     private RetrofitManager() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://fcu-mobileapp.rivercat.dev/")
+                .baseUrl("http://fcu-mobileapp.rivercat.dev:8080/")
+                //.baseUrl("http://10.0.2.2:8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
