@@ -10,6 +10,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
+import java.util.ArrayList;
+
+import dev.rivercat.fw_courier.module.FoodInformation;
+import dev.rivercat.fw_courier.view.UserOrderView;
+
 public class PayActivity extends AppCompatActivity {
 
     private Button btnHome;
@@ -23,17 +28,21 @@ public class PayActivity extends AppCompatActivity {
         lv_order = findViewById(R.id.pay_lv_choose);
         btnHome = findViewById(R.id.pay_btn_home);
 
-        View.OnClickListener onClickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(v.getId()==R.id.pay_btn_home){
-                    Intent intent = new Intent(PayActivity.this, HomeActivity.class);
-                    startActivity(intent);
-                }
+        ArrayList<FoodInformation> foodInformations = new ArrayList<>();
+        Bundle extras = getIntent().getExtras();
+        if (extras != null)
+            foodInformations = extras.getParcelableArrayList("info");
+
+        UserOrderView userOrderView = new UserOrderView(this, foodInformations);
+        lv_order.setAdapter(userOrderView);
+
+        View.OnClickListener onClickListener = v -> {
+            if (v.getId() == R.id.pay_btn_home) {
+                Intent intent = new Intent(PayActivity.this, HomeActivity.class);
+                startActivity(intent);
             }
         };
 
         btnHome.setOnClickListener(onClickListener);
-
     }
 }

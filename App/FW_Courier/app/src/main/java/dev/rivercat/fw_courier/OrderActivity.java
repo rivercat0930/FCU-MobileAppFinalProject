@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -143,6 +144,7 @@ public class OrderActivity extends AppCompatActivity {
                         if (response.code() == 200) {
                             Toast.makeText(OrderActivity.this, "已送出訂單", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(OrderActivity.this, PayActivity.class);
+                            intent.putParcelableArrayListExtra("info", (ArrayList<? extends Parcelable>) currentChoice);
                             startActivity(intent);
                         }
                         else

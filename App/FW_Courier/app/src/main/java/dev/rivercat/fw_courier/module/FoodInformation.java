@@ -1,6 +1,11 @@
 package dev.rivercat.fw_courier.module;
 
-public class FoodInformation {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
+public class FoodInformation implements Parcelable {
     private String restaurantName;
     private String foodName;
     private Integer foodPrice;
@@ -12,6 +17,29 @@ public class FoodInformation {
         this.foodPrice = foodPrice;
         this.foodDescription = foodDescription;
     }
+
+    protected FoodInformation(Parcel in) {
+        restaurantName = in.readString();
+        foodName = in.readString();
+        if (in.readByte() == 0) {
+            foodPrice = null;
+        } else {
+            foodPrice = in.readInt();
+        }
+        foodDescription = in.readString();
+    }
+
+    public static final Creator<FoodInformation> CREATOR = new Creator<FoodInformation>() {
+        @Override
+        public FoodInformation createFromParcel(Parcel in) {
+            return new FoodInformation(in);
+        }
+
+        @Override
+        public FoodInformation[] newArray(int size) {
+            return new FoodInformation[size];
+        }
+    };
 
     public String getRestaurantName() {
         return restaurantName;
@@ -43,5 +71,23 @@ public class FoodInformation {
 
     public void setFoodDescription(String foodDescription) {
         this.foodDescription = foodDescription;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
+        parcel.writeString(restaurantName);
+        parcel.writeString(foodName);
+        if (foodPrice == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeInt(foodPrice);
+        }
+        parcel.writeString(foodDescription);
     }
 }
