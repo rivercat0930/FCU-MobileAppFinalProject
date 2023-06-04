@@ -10,26 +10,23 @@
         android:id="@+id/restaurantsetting_tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="72dp"
         android:text="商家管理頁面"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.905" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginTop="12dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/restaurantsetting_lv_item"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/restaurantsetting_btn_add">
 
         <TextView
             android:id="@+id/restaurantsetting_tv_title2"
@@ -50,21 +47,20 @@
         android:id="@+id/restaurantsetting_lv_item"
         android:layout_width="344dp"
         android:layout_height="174dp"
-        android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/restaurantsetting_btn_fin"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/restaurantsetting_btn_add"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <TextView
             android:id="@+id/restaurantsetting_tv_price"
@@ -87,12 +83,11 @@
         android:id="@+id/linearLayout2"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout1">
 
         <TextView
             android:id="@+id/restaurantsetting_tv_description"
@@ -113,32 +108,32 @@
         android:id="@+id/restaurantsetting_btn_fin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
         android:text="更改完成"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/restaurantsetting_lv_item" />
 
     <Button
         android:id="@+id/restaurantsetting_btn_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
         android:text="新增商品"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="36dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/restaurantsetting_tv_title">
 
         <TextView
             android:id="@+id/restaurantsetting_tv_name"
